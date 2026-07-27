@@ -1,0 +1,51 @@
+{
+  "entities": {
+    "Complaint": {
+      "title": "Complaint",
+      "description": "Public complaint for population and civil registration services",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "nik": { "type": "string", "maxLength": 16 },
+        "namaLengkap": { "type": "string", "maxLength": 100 },
+        "email": { "type": "string", "maxLength": 100 },
+        "noWhatsapp": { "type": "string", "maxLength": 20 },
+        "bidang": { "type": "string", "enum": ["pendaftaran_penduduk", "pencatatan_sipil", "kiak_piai"] },
+        "dokumenUtamaType": { "type": "string" },
+        "permasalahan": { "type": "string", "maxLength": 2000 },
+        "status": { "type": "string", "enum": ["menunggu", "diproses", "selesai", "ditolak"] },
+        "tanggalPengaduan": { "type": "string" },
+        "catatanPetugas": { "type": "string" },
+        "tanggalVerifikasi": { "type": "string" },
+        "petugasVerifikasi": { "type": "string" },
+        "emailSent": { "type": "boolean" },
+        "emailSentAt": { "type": "string" },
+        "emailMessageId": { "type": "string" }
+      },
+      "required": ["id", "nik", "namaLengkap", "email", "bidang", "permasalahan", "status", "tanggalPengaduan"]
+    },
+    "OfficerConfig": {
+      "title": "OfficerConfig",
+      "description": "Configuration for Disdukcapil officer and contact parameters",
+      "type": "object",
+      "properties": {
+        "namaPetugas": { "type": "string" },
+        "nipPetugas": { "type": "string" },
+        "jabatanPetugas": { "type": "string" },
+        "nomorWhatsappPetugas": { "type": "string" },
+        "emailPetugas": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      }
+    }
+  },
+  "firestore": {
+    "/complaints/{complaintId}": {
+      "schema": "Complaint",
+      "description": "Collection storing population complaints submitted by citizens"
+    },
+    "/config/officer": {
+      "schema": "OfficerConfig",
+      "description": "System configuration for officer details"
+    }
+  }
+}

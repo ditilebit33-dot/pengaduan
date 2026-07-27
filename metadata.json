@@ -1,0 +1,6 @@
+{
+  "name": "Aplikasi Layanan Pengaduan Disdukcapil Kepulauan Tanimbar",
+  "description": "Sistem Layanan Pengaduan Masyarakat Dinas Kependudukan dan Pencatatan Sipil Kabupaten Kepulauan Tanimbar dengan integrasi WhatsApp, generasi PDF dokumen pendukung, dan Panel Admin Verifikasi & Laporan.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
